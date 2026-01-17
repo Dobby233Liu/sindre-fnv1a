@@ -55,7 +55,7 @@ function fnv1aEncodeInto(string, size, utf8Buffer) {
 	return hash;
 }
 
-export default function fnv1a(value, {size = 32, utf8Buffer} = {}) {
+(typeof globalThis != "undefined" ? globalThis : this).fnv1a = function fnv1a(value, {size = 32, utf8Buffer} = {}) {
 	if (!FNV_PRIMES[size]) {
 		throw new Error('The `size` option must be one of 32, 64, 128, 256, 512, or 1024');
 	}
